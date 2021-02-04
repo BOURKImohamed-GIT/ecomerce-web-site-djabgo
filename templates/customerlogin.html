@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock  %}
+{% block content%}
+<style>
+   .errorlist{
+
+       color: #f60404;
+       background-color: gold;
+       padding-top: 5px;
+
+
+   }
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto ">
+            <h3>Customer login </h3><hr>
+            <form action="" method="POST">
+             {% csrf_token %}
+              {{form.as_p}}
+              <button class="btn btn-success">Dkhal awzon</button>
+                {% if error %}
+               <li style="color: #f60404">{{error}}</li>
+                {% endif   %}
+
+            </form>
+               <p>or m3ndakch compt tsjal <a href="{% url 'appstore:customerregistration' %}{% if request.GET.next %}?next={{request.GET.next}}{% endif %}">tsjal hna</a> </p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
